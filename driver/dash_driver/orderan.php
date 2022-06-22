@@ -126,6 +126,15 @@
               let lat<?php echo $data2['id_order']; ?> = p.coords.latitude.toFixed(7);
               let lon<?php echo $data2['id_order']; ?> = p.coords.longitude.toFixed(7);
 
+              let greenIcon = new L.Icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+              });
+
               let mymap<?php echo $data2['id_order']; ?> = L.map('mapid<?php echo $data2['id_order']; ?>').setView([<?php echo $data2['lat']; ?>, <?php echo $data2['lon']; ?>], 15);
 
               L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -136,7 +145,7 @@
               }).addTo(mymap<?php echo $data2['id_order']; ?>);
 
               let penumpang<?php echo $data2['id_order']; ?> = L.marker([<?php echo $data2['lat']; ?>, <?php echo $data2['lon']; ?>]).addTo(mymap<?php echo $data2['id_order']; ?>);
-              let driver<?php echo $data2['id_order']; ?> = L.marker([lat<?php echo $data2['id_order']; ?>, lon<?php echo $data2['id_order']; ?>]).addTo(mymap<?php echo $data2['id_order']; ?>);
+              let driver<?php echo $data2['id_order']; ?> = L.marker([lat<?php echo $data2['id_order']; ?>, lon<?php echo $data2['id_order']; ?>], {icon: greenIcon}).addTo(mymap<?php echo $data2['id_order']; ?>);
               // $('#lokasi').click(function() {
               //   geo_position_js.getCurrentPosition(success_callback<?php echo $data2['id_order']; ?>,error_callback,{enableHighAccuracy:true});
               // });
